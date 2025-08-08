@@ -8,7 +8,7 @@
 
 <p>
     <a asp-action="Create">Create New</a>
-</p>
+   </p>
 <table class="table">
     <thead>
         <tr>
@@ -31,11 +31,18 @@
                 @Html.DisplayFor(modelItem => item.Descricao)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>  
+                @item.DataCriacao.ToString("dd/MM/yyyy HH:mm")
+                @item.DataConclusao?.ToString("dd/MM/yyyy HH:mm")|
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                @Model.DataCriacao.ToString("dd/MM/yyyy HH:mm")
+                @Model.DataConclusao?.ToString("dd/MM/yyyy HH:mm")|
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                @Model.DataCriacao.ToString("dd/MM/yyyy HH:mm")
+                @Model.DataConclusao?.ToString("dd/MM/yyyy HH:mm")
             </td>
         </tr>
 }
     </tbody>
 </table>
+
